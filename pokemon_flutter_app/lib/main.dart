@@ -20,12 +20,19 @@ class _PokedexState extends State<Pokedex> with TickerProviderStateMixin{
   void initState() {
     super.initState();
     setRotationAnimation();
+    setMoveAnimation();
+  }
+
+  void setMoveAnimation() {
     moveAnimationController = AnimationController(
         duration: Duration(milliseconds: 1000),
         vsync: this,
         value: 0.0
     );
     moveAnimation = Tween<double>(begin:0, end: 300).animate(moveAnimationController)..addListener(() {
+      if(moveAnimation.isDismissed){
+        rotateAnimationController.reverse();
+      }
       setState(() {});
     });
   }
@@ -40,6 +47,7 @@ class _PokedexState extends State<Pokedex> with TickerProviderStateMixin{
       if(rotateAnimation.isCompleted){
         moveAnimationController.forward();
       }
+
       setState(() {});
     });
   }
@@ -78,44 +86,40 @@ class _PokedexState extends State<Pokedex> with TickerProviderStateMixin{
               )
             ],
           ),
-          GestureDetector(
-            onTap: (){
-              rotateAnimationController.forward();
-            },
-            child: Transform.translate(
-              offset: Offset(0, moveAnimation.value),
-              child: Stack(
-                children: [
-                  Center(
-                    child: Container(
-                      height: 50,
-                      width: screenWidth,
-                      color: Colors.black,
-                    ),
+          Transform.translate(
+            offset: Offset(0, moveAnimation.value),
+            child: Stack(
+              children: [
+                Center(
+                  child: Container(
+                    height: 50,
+                    width: screenWidth,
+                    color: Colors.black,
                   ),
-                  GestureDetector(
-                    onTap: (){
-                      rotateAnimationController.forward();
-                    },
-                    child: Center(
-                      child: Transform.rotate(
-                        angle: rotateAnimation.value,
-                        child: Container(
-                          height: 120,
-                          width: 120,
+                ),
+                GestureDetector(
+                  onTap: (){
+                    !rotateAnimation.isCompleted ? rotateAnimationController.forward() : moveAnimationController.reverse();
+                    print("is tapped");
+                  },
+                  child: Center(
+                    child: Transform.rotate(
+                      angle: rotateAnimation.value,
+                      child: Container(
+                        height: 120,
+                        width: 120,
 //                    color: Colors.white,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(
-                              width: 30,
-                            )
-                          ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            width: 30,
+                          )
                         ),
-                      )
-                    ),
-                  )
-                ],
-              ),
+                      ),
+                    )
+                  ),
+                )
+              ],
             ),
           )
         ],
