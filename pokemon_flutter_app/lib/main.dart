@@ -14,7 +14,9 @@ main(){
     home: PokedexCoverScreen(),
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
-      primaryColor: Colors.red
+      primaryColor: Colors.red,
+      accentColor: Color(0xff282828),
+      cursorColor: Color(0xff282828)
     ),
     initialRoute: 'pokedex.cover.screen',
     routes: {

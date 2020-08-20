@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
-import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
 import 'package:pokemon_flutter_app/widgets/menu.button.dart';
 import 'package:audioplayers/audio_cache.dart';
 
@@ -14,7 +13,6 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        YourProfileScreen(),
         Scaffold(
           backgroundColor: kBackgroundColor,
           body: Padding(

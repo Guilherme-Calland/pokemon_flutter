@@ -17,6 +17,7 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
     setSquareRotationAnimation();
     setMoveAnimation();
     setMoveSquareAnimation();
+    //TODO: create user name as "" here!
   }
 
   void setMoveSquareAnimation() {
