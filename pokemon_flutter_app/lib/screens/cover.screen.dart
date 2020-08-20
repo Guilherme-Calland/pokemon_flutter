@@ -3,18 +3,22 @@ import 'package:pokemon_flutter_app/components/components.dart';
 
 import 'menu.screen.dart';
 
-class PokedexHomeScreen extends StatefulWidget {
+class PokedexCoverScreen extends StatefulWidget {
   @override
-  _PokedexHomeScreenState createState() => _PokedexHomeScreenState();
+  _PokedexCoverScreenState createState() => _PokedexCoverScreenState();
 }
 
-class _PokedexHomeScreenState extends State<PokedexHomeScreen> with TickerProviderStateMixin{
+class _PokedexCoverScreenState extends State<PokedexCoverScreen> with TickerProviderStateMixin{
 
   @override
   void initState() {
     super.initState();
     setSquareRotationAnimation();
     setMoveAnimation();
+    setMoveSquareAnimation();
+  }
+
+  void setMoveSquareAnimation() {
     moveSquareAnimationController = AnimationController(
         duration: Duration(milliseconds: 500),
         vsync: this,
@@ -26,8 +30,6 @@ class _PokedexHomeScreenState extends State<PokedexHomeScreen> with TickerProvid
       }
       setState(() {});
     });
-
-
   }
 
   void setMoveAnimation() {
@@ -57,7 +59,6 @@ class _PokedexHomeScreenState extends State<PokedexHomeScreen> with TickerProvid
       if(rotateSquareAnimation.isCompleted){
         moveAnimationController.forward();
       }
-
       setState(() {});
     });
   }
@@ -79,6 +80,31 @@ class _PokedexHomeScreenState extends State<PokedexHomeScreen> with TickerProvid
                   height: screenHeight/2,
                   width: screenWidth,
                   color: Colors.red,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: screenHeight/2 - 120,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 0.0, right: 4),
+                            child: Icon(
+                                Icons.menu,
+                                size: 30,
+                                color: Color(0xffb30000),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 24),
+                            child: Text('POKEDEX', style: TextStyle(
+                              fontWeight: FontWeight.w900, color: Color(0xffb30000), fontSize: 40
+                            ),),
+                          ),
+                        ],
+                      )
+                    ],
+                  )
                 ),
               ),
               Transform.translate(
