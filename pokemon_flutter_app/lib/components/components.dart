@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-AnimationController rotateAnimationController, moveAnimationController;
-Animation rotateAnimation, moveAnimation;
+AnimationController rotateSquareAnimationController, moveAnimationController, moveSquareAnimationController;
+Animation rotateSquareAnimation, moveAnimation, moveSquareAnimation;
 
