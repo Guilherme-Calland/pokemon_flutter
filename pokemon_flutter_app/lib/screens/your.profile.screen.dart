@@ -19,12 +19,41 @@ class YourProfileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TypewriterText('Name:'),
-            TypewriterText('Trainer Level:'),
-            TypewriterText('Your Pokemon:'),
+            TypewriterText('Name:Guilherme'),
+            SizedBox(height: 32,),
+            Text('Your Pokemon:', style: kDefaultTextStyle,),
+            Row(
+              children: [
+                SizedBox(width: 100,),
+                Column(
+                  children: [
+                    ListText('Blastoise'),
+                    ListText('Blastoise'),
+                    ListText('Blastoise'),
+                    ListText('Blastoise'),
+                    ListText('Blastoise'),
+                    ListText('Blastoise'),
+                    ListText('Blastoise'),
+                  ],
+                ),
+              ],
+            )
           ],
         ),
       )
+    );
+  }
+}
+
+class ListText extends StatelessWidget {
+  String text;
+  ListText(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16),
+      child: Text(text, style: kDefaultTextStyle,),
     );
   }
 }

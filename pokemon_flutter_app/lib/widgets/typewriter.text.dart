@@ -10,7 +10,7 @@ class TypewriterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 48),
+      padding: const EdgeInsets.only(bottom: 16),
       child: TypewriterAnimatedTextKit(
         isRepeatingAnimation: false,
         speed: Duration(milliseconds: 200),
