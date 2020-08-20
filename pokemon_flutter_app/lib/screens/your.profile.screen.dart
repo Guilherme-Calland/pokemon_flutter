@@ -10,7 +10,10 @@ class YourProfileScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
-        title: PokedexTitle(),
+        title: Padding(
+          padding: const EdgeInsets.only(right: 48),
+          child: PokedexTitle(),
+        ),
         //setting leading as an empty container to remove the return arrow
         leading: Container(),
       ),
@@ -19,6 +22,7 @@ class YourProfileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //TODO: make user choose name, the name should be saved in the database
             TypewriterText('Name:Guilherme'),
             SizedBox(height: 32,),
             Text('Your Pokemon:', style: kDefaultTextStyle,),

@@ -7,7 +7,7 @@ class PokedexTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 0.0, right: 4),
+          padding: const EdgeInsets.only(right: 4),
           child: Icon(
             Icons.menu,
             size: 30,
