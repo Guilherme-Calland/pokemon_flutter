@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
+import 'package:pokemon_flutter_app/widgets/pokedex.title.dart';
 
 import 'menu.screen.dart';
 
@@ -84,25 +85,7 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen> with TickerProv
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: screenHeight/2 - 120,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 0.0, right: 4),
-                            child: Icon(
-                                Icons.menu,
-                                size: 30,
-                                color: Color(0xffb30000),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 24),
-                            child: Text('POKEDEX', style: TextStyle(
-                              fontWeight: FontWeight.w900, color: Color(0xffb30000), fontSize: 40
-                            ),),
-                          ),
-                        ],
-                      )
+                      PokedexTitle(),
                     ],
                   )
                 ),

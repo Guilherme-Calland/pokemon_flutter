@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_flutter_app/screens/cover.screen.dart';
+import 'package:pokemon_flutter_app/screens/pokedex.cover.screen.dart';
 import 'package:pokemon_flutter_app/screens/menu.screen.dart';
+import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
 
 import 'components/components.dart';
 
@@ -15,6 +16,12 @@ main(){
     theme: ThemeData(
       primaryColor: Colors.red
     ),
+    initialRoute: 'pokedex.cover.screen',
+    routes: {
+      'pokedex.cover.screen' : (context) => PokedexCoverScreen(),
+      'menu.screen' : (context) => MenuScreen(),
+      'your.profile.screen' : (context) => YourProfileScreen(),
+    }
   ));
 }
 

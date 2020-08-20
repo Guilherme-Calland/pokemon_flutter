@@ -5,3 +5,4 @@ TextStyle kDefaultTextStyle = TextStyle(fontSize: 20, color: Color(0x8021ff00), 
 AnimationController rotateSquareAnimationController, moveAnimationController, moveSquareAnimationController;
 Animation rotateSquareAnimation, moveAnimation, moveSquareAnimation;
 
+Color kBackgroundColor = Color(0xff282828);
