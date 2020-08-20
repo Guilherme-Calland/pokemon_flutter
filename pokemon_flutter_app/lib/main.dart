@@ -6,7 +6,7 @@ import 'components/components.dart';
 
 //TODO: change icon
 //TODO: (optional) make so that the open menu animation reverses any time you tap the square
-
+//TODO: change orientation to portrait
 
 main(){
   runApp(MaterialApp(
