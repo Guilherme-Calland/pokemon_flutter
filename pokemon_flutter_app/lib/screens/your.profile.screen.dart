@@ -11,6 +11,7 @@ class YourProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    nameController.text = provider(context).userName;
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(
@@ -49,7 +50,7 @@ class YourProfileScreen extends StatelessWidget {
               TypewriterText('Your Pokemon:'),
               Row(
                 children: [
-                  SizedBox(width: 100,),
+                  SizedBox(width: 4,),
                   Column(
                     children: [
                       ListText('Blastoise'),

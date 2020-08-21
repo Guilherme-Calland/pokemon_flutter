@@ -9,16 +9,13 @@ class TypewriterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: TypewriterAnimatedTextKit(
-        isRepeatingAnimation: false,
-        speed: Duration(milliseconds: 200),
-        text: [
-          text,
-        ],
-        textStyle: kDefaultTextStyle,
-      ),
+    return TypewriterAnimatedTextKit(
+      isRepeatingAnimation: false,
+      speed: Duration(milliseconds: 200),
+      text: [
+        text,
+      ],
+      textStyle: kDefaultTextStyle,
     );
   }
 }

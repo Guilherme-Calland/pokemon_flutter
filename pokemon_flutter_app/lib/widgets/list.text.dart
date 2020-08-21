@@ -9,7 +9,7 @@ class ListText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 16),
-      child: Text(text, style: kDefaultTextStyle,),
+      child: Text(text, style: kDefaultTextStyle.copyWith(fontSize: 12),),
     );
   }
 }
