@@ -58,4 +58,15 @@ class DatabaseHelper{
     print(data);
     return data;
   }
+
+  updateUserName(Map<String, dynamic> data) async{
+    var db = await database;
+    int result = await db.update(
+      'user',
+      data,
+      where: 'id = ?',
+      whereArgs: [1]
+    );
+    return result;
+  }
 }

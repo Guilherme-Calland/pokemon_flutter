@@ -5,11 +5,6 @@ class SharedData extends ChangeNotifier{
   String userName = null;
   DatabaseHelper database = DatabaseHelper();
 
-  changeUserName(String value){
-    userName = value;
-    notifyListeners();
-  }
-
   createUserName() async{
     Map<String, dynamic> data = {
       'name' : ''
@@ -24,6 +19,15 @@ class SharedData extends ChangeNotifier{
     String dataUserName = (data.first)['name'];
     userName = dataUserName;
     notifyListeners();
+  }
+
+  updateUserName(String userName) async{
+    Map<String, dynamic> data = {
+      'name' : userName
+    };
+    int result = await database.updateUserName(data);
+    print('updated name: $result');
+    readUserName();
   }
 }
 
