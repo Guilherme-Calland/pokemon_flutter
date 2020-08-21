@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
+import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:pokemon_flutter_app/widgets/pokedex.title.dart';
+import 'package:provider/provider.dart';
 
 import 'menu.screen.dart';
 

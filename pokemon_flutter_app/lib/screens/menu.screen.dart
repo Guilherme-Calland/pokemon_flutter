@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
+import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
+import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:pokemon_flutter_app/widgets/menu.button.dart';
 import 'package:audioplayers/audio_cache.dart';
+import 'package:provider/provider.dart';
 
 class MenuScreen extends StatelessWidget {
 //TODO: remove unused assets in the assets folder
@@ -21,15 +24,19 @@ class MenuScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //TODO: add the player's name here
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 16.0,
                     bottom: 16,
                   ),
-                  child: Text(
-                    'Welcome',
-                    style: kDefaultTextStyle,
+                  child: Consumer<SharedData>(
+                    builder: (context, data, child){
+                      return Text(
+                        'Welcome ${data.userName}',
+                        style: kDefaultTextStyle.copyWith(),
+
+                      );
+                    }
                   ),
                 ),
                 MenuButton(

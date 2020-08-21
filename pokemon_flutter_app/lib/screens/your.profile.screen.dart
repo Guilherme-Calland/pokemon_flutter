@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
+import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:pokemon_flutter_app/widgets/list.text.dart';
 import 'package:pokemon_flutter_app/widgets/pokedex.title.dart';
 import 'package:pokemon_flutter_app/widgets/typewriter.text.dart';
+import 'package:provider/provider.dart';
 
-class YourProfileScreen extends StatefulWidget {
-  @override
-  _YourProfileScreenState createState() => _YourProfileScreenState();
-}
-
-class _YourProfileScreenState extends State<YourProfileScreen> {
-  var nameController = TextEditingController();
-
-  @override
-  void dispose() {
-    super.dispose();
-    //TODO: make the update the user name here
-  }
+class YourProfileScreen extends StatelessWidget {
+  final nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +32,9 @@ class _YourProfileScreenState extends State<YourProfileScreen> {
                   Text('Name:', style: kDefaultTextStyle,),
                   Expanded(
                     child: TextField(
+                      onChanged: (value){
+                        Provider.of<SharedData>(context, listen: false).changeUserName(value);
+                      },
                       controller: nameController,
                       style: kDefaultTextStyle,
                       keyboardType: TextInputType.visiblePassword,
