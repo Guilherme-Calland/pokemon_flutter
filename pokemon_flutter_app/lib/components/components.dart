@@ -11,3 +11,15 @@ Color kBackgroundColor = Color(0xff282828);
 
 SharedData provider(BuildContext context) => Provider.of<SharedData>(context, listen: false);
 
+MaterialColor kBackgroundMaterialColor = MaterialColor(0xff282828, {
+  50: Color(0xff282828),
+  100: Color(0xff282828),
+  200: Color(0xff282828),
+  300: Color(0xff282828),
+  400: Color(0xff282828),
+  500: Color(0xff282828),
+  600: Color(0xff282828),
+  700: Color(0xff282828),
+  800: Color(0xff282828),
+  900: Color(0xff282828),
+});

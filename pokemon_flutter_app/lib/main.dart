@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_flutter_app/components/components.dart';
 import 'package:pokemon_flutter_app/screens/pokedex.cover.screen.dart';
 import 'package:pokemon_flutter_app/screens/menu.screen.dart';
 import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
@@ -32,7 +33,10 @@ class PokemonApp extends StatelessWidget {
             primaryColor: Colors.red,
             accentColor: Color(0xff282828),
             //the cursor color is the same as the background color
-            cursorColor: Color(0xff282828)),
+            cursorColor: Color(0xff282828),
+            primarySwatch: kBackgroundMaterialColor
+        ),
+
         initialRoute: 'pokedex.cover.screen',
         routes: {
           'pokedex.cover.screen': (context) => PokedexCoverScreen(),
