@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
-import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
 import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:pokemon_flutter_app/widgets/menu.button.dart';
 import 'package:audioplayers/audio_cache.dart';
@@ -12,6 +11,7 @@ class MenuScreen extends StatelessWidget {
 //TODO: feature: search for any pokemon and show stats
 //TODO: feature: the picture that shows up of the pokemon must be from a other little screen that slides down so that it justifies it being coloured
 //TODO: feature: go out into the world and reach a random pokemon(there are a total od 1054 as shown here: https://pokeapi.co/api/v2/pokemon), create an algorithm that tells you your chances of capturing it
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -34,7 +34,6 @@ class MenuScreen extends StatelessWidget {
                       return Text(
                         'Welcome ${data.userName}',
                         style: kDefaultTextStyle.copyWith(),
-
                       );
                     }
                   ),

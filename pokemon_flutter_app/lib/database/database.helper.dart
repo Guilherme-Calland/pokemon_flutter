@@ -27,18 +27,22 @@ class DatabaseHelper{
   }
 
   _onCreate(Database db, int version) async{
-    String sqlUserCreation = 'CREATE TABLE user('
-        'id INTEGER PRIMARY KEY AUTOINCREMENT'
+    String sqlUser = 'CREATE TABLE user('
+        'id INTEGER PRIMARY KEY AUTOINCREMENT,'
         'name VARCHAR'
         ')';
-    String sqlPokemonListCreation = 'CREATE TABLE pokemon('
-        'id INTEGER PRIMARY KEY AUTOINCREMENT'
-        'name VARCHAR'
+    String sqlAccomplishments = 'CREATE TABLE accomplishments('
+        'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+        'title VARCHAR,'
+        'description VARCHAR'
         ')';
-    await db.execute(sqlUserCreation);
-    await db.execute(sqlPokemonListCreation);
+    await db.execute(sqlUser);
+    await db.execute(sqlAccomplishments);
   }
 
-
-
+  createUserName(Map<String, dynamic> data) async{
+    var db = await database;
+    int result = await db.insert('user', data);
+    return result;
+  }
 }
