@@ -19,14 +19,11 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
     setSquareRotationAnimation();
     setMoveAnimation();
     setMoveSquareAnimation();
-    initializeUserIfNotExists();
+    readUserName();
   }
 
-  initializeUserIfNotExists() {
-    String userName = Provider.of<SharedData>(context, listen: false).userName;
-    if(userName == null){
-      Provider.of<SharedData>(context, listen: false).createUserName();
-    }
+  void readUserName() {
+    provider(context).readUserName();
   }
 
   void setMoveSquareAnimation() {

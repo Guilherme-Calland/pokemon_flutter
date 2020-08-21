@@ -33,7 +33,7 @@ class YourProfileScreen extends StatelessWidget {
                   Expanded(
                     child: TextField(
                       onChanged: (value){
-                        Provider.of<SharedData>(context, listen: false).changeUserName(value);
+                        provider(context).changeUserName(value);
                       },
                       controller: nameController,
                       style: kDefaultTextStyle,

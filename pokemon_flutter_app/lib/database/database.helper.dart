@@ -38,11 +38,24 @@ class DatabaseHelper{
         ')';
     await db.execute(sqlUser);
     await db.execute(sqlAccomplishments);
+
+    Map<String, dynamic> userName = {
+      'name' : ''
+    };
+    createUserName(userName);
   }
 
   createUserName(Map<String, dynamic> data) async{
     var db = await database;
     int result = await db.insert('user', data);
     return result;
+  }
+
+  readUserName() async{
+    var db = await database;
+    String sql = 'SELECT * FROM user';
+    List< Map<String, dynamic> > data = await db.rawQuery( sql );
+    print(data);
+    return data;
   }
 }

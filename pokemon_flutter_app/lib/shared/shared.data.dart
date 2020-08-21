@@ -16,9 +16,14 @@ class SharedData extends ChangeNotifier{
     };
     int result = await database.createUserName(data);
     print('created user of id: $result');
+    readUserName();
   }
 
-
-
+  readUserName() async{
+    List< Map< String, dynamic> > data = await database.readUserName();
+    String dataUserName = (data.first)['name'];
+    userName = dataUserName;
+    notifyListeners();
+  }
 }
 
