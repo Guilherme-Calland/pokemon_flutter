@@ -20,6 +20,7 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
     setMoveAnimation();
     setMoveSquareAnimation();
     readUserName();
+    provider(context).readPokemonList();
   }
 
   void readUserName() {
@@ -128,7 +129,7 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
                     offset: Offset(0, moveSquareAnimation.value),
                     child: Transform.rotate(
                       angle: rotateSquareAnimation.value,
-                        child: Image.asset('assets/poke3.png', height: 120,),
+                        child: Image.asset('assets/lock.png', height: 120,),
 //                      child: Container(
 //                        child: Center(),
 //                        height: 120,

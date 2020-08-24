@@ -5,11 +5,23 @@ class ListText extends StatelessWidget {
   String text;
   ListText(this.text);
 
+  var controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: Text(text, style: kDefaultTextStyle.copyWith(fontSize: 12),),
+    controller.text = text;
+
+    return Container(
+      height: 32,
+      padding: const EdgeInsets.only(left:4),
+      child: TextField(
+        controller: controller,
+        style: kDefaultTextStyle.copyWith(fontSize: 12),
+        keyboardType: TextInputType.visiblePassword,
+        decoration: InputDecoration(
+            border: InputBorder.none
+        ),
+      ),
     );
   }
 }

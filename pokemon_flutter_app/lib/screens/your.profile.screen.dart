@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
 import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:pokemon_flutter_app/widgets/list.text.dart';
+import 'package:pokemon_flutter_app/widgets/menu.button.dart';
 import 'package:pokemon_flutter_app/widgets/pokedex.title.dart';
+import 'package:pokemon_flutter_app/widgets/profile.button.dart';
 import 'package:pokemon_flutter_app/widgets/typewriter.text.dart';
 import 'package:provider/provider.dart';
 
@@ -48,22 +50,21 @@ class YourProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: 32,),
               TypewriterText('Your Pokemon:'),
-              Row(
-                children: [
-                  SizedBox(width: 4,),
-                  Column(
-                    children: [
-                      ListText('Blastoise'),
-                      ListText('Blastoise'),
-                      ListText('Blastoise'),
-                      ListText('Blastoise'),
-                      ListText('Blastoise'),
-                      ListText('Blastoise'),
-                      ListText('Blastoise'),
-                    ],
-                  ),
-                ],
-              ),
+              SizedBox(height: 16,),
+//              Consumer<SharedData>(
+//                builder: (context, data, child){
+//                  List<ListText> pokemonList = data.pokemonList;
+//                  return Column(
+//                      children: pokemonList
+//                  );
+//                }
+//              ),
+            Column(
+              children: listenerProvider(context).pokemonList
+            ),
+              ProfileButton(text: 'Add', onTap: (){
+                provider(context).createPokemon();
+              })
             ],
           ),
         ),

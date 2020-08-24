@@ -37,7 +37,7 @@ class PokemonApp extends StatelessWidget {
             primarySwatch: kBackgroundMaterialColor
         ),
 
-        initialRoute: 'pokedex.cover.screen',
+        initialRoute: 'your.profile.screen',
         routes: {
           'pokedex.cover.screen': (context) => PokedexCoverScreen(),
           'menu.screen': (context) => MenuScreen(),

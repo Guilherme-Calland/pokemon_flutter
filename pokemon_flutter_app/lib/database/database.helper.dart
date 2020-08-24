@@ -73,4 +73,18 @@ class DatabaseHelper{
     );
     return result;
   }
+
+  createPokemon(Map<String, dynamic> data) async{
+    var db = await database;
+    int result = await db.insert('pokemon', data);
+    return result;
+  }
+
+  readPokemonList() async{
+    var db = await database;
+    String sql = 'SELECT * FROM pokemon';
+    List<Map<String, dynamic>> data = await db.rawQuery( sql );
+    print(data);
+    return data;
+  }
 }
