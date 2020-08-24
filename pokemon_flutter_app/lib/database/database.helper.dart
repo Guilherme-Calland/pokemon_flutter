@@ -21,7 +21,7 @@ class DatabaseHelper{
 
   initializeDatabase() async{
     final path = await getDatabasesPath();
-    final file = join(path, 'pokedex_database.db');
+    final file = join(path, 'pokedexdatabase.db');
     final db = await openDatabase(file, version: 1, onCreate: _onCreate);
     return db;
   }
@@ -33,16 +33,20 @@ class DatabaseHelper{
         ')';
     String sqlAccomplishments = 'CREATE TABLE accomplishments('
         'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-        'title VARCHAR,'
-        'description VARCHAR'
+        'title VARCHAR'
+        ')';
+    String sqlPokemonList= 'CREATE TABLE pokemon('
+        'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+        'name VARCHAR'
         ')';
     await db.execute(sqlUser);
     await db.execute(sqlAccomplishments);
+    await db.execute(sqlPokemonList);
 
     Map<String, dynamic> userName = {
       'name' : ''
     };
-    createUserName(userName);
+    db.insert('user', userName);
   }
 
   createUserName(Map<String, dynamic> data) async{

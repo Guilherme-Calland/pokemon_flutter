@@ -30,7 +30,7 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
     moveSquareAnimationController = AnimationController(
         duration: Duration(milliseconds: 500), vsync: this, value: 0.0);
     moveSquareAnimation =
-        Tween<double>(begin: 0, end: 60).animate(moveSquareAnimationController)
+        Tween<double>(begin: 0, end: 40).animate(moveSquareAnimationController)
           ..addListener(() {
             if (moveSquareAnimation.isDismissed) {
               moveAnimationController.reverse();
@@ -58,7 +58,7 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
   void setSquareRotationAnimation() {
     rotateSquareAnimationController = AnimationController(
         duration: Duration(milliseconds: 500), vsync: this, value: 0.0);
-    rotateSquareAnimation = Tween<double>(begin: 0.0, end: 0.8)
+    rotateSquareAnimation = Tween<double>(begin: 0.0, end: 1.6)
         .animate(rotateSquareAnimationController)
           ..addListener(() {
             if (rotateSquareAnimation.isCompleted) {
@@ -128,18 +128,19 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
                     offset: Offset(0, moveSquareAnimation.value),
                     child: Transform.rotate(
                       angle: rotateSquareAnimation.value,
-                      child: Container(
-                        child: Center(),
-                        height: 120,
-                        width: 120,
-//                    color: Colors.white,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          border: Border.all(
-                            width: 30,
-                          ),
-                        ),
-                      ),
+                        child: Image.asset('assets/poke3.png', height: 120,),
+//                      child: Container(
+//                        child: Center(),
+//                        height: 120,
+//                        width: 120,
+////                    color: Colors.white,
+//                        decoration: BoxDecoration(
+//                          color: Colors.white,
+//                          border: Border.all(
+//                            width: 30,
+//                          ),
+//                        ),
+//                      ),
                     ),
                   )),
                 )
