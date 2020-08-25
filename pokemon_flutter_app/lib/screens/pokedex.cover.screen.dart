@@ -16,6 +16,7 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
   @override
   void initState() {
     super.initState();
+    //TODO: change name from square to lock
     setSquareRotationAnimation();
     setMoveAnimation();
     setMoveSquareAnimation();

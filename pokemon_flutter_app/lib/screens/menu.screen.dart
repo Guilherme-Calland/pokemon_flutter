@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
+import 'package:pokemon_flutter_app/screens/forum.screen.dart';
 import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
 import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:pokemon_flutter_app/widgets/list.text.dart';
@@ -39,31 +40,23 @@ class MenuScreen extends StatelessWidget {
                 MenuButton(
                   text: 'Your Profile',
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('buttonSelected.wav');
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context){
-                          String userName = provider(context).userName;
-                          return YourProfileScreen(userName: userName);
-                        }
-                      ),
-                    );
+                    playSound();
+                    String userName = provider(context).userName;
+                    changeScreen(context, YourProfileScreen(userName: userName),);
                   },
                 ),
                 MenuButton(
                   text: 'Search Pokemon',
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('buttonSelected.wav');
+                    playSound();
                   },
                 ),
                 MenuButton(
                   text: 'Forum',
                   onTap: () {
-                    final player = AudioCache();
-                    player.play('buttonSelected.wav');
+                    playSound();
+                    changeScreen(context, ForumScreen(),);
+
                   },
                 ),
                 SizedBox(
@@ -75,5 +68,10 @@ class MenuScreen extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  void playSound() {
+    final player = AudioCache();
+    player.play('buttonSelected.wav');
   }
 }

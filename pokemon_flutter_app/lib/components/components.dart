@@ -25,3 +25,14 @@ MaterialColor kBackgroundMaterialColor = MaterialColor(0xff282828, {
   800: Color(0xff282828),
   900: Color(0xff282828),
 });
+
+void changeScreen(BuildContext context, Widget newScreen) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+        builder: (context){
+          return newScreen;
+        }
+    ),
+  );
+}
