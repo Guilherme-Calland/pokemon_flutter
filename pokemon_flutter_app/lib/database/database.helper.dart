@@ -49,6 +49,9 @@ class DatabaseHelper{
     db.insert('user', userName);
   }
 
+
+  //CRUD username
+
   createUserName(Map<String, dynamic> data) async{
     var db = await database;
     int result = await db.insert('user', data);
@@ -73,6 +76,8 @@ class DatabaseHelper{
     );
     return result;
   }
+
+  //CRUD pokemon of the user's pokemon list
 
   createPokemon(Map<String, dynamic> data) async{
     var db = await database;
@@ -107,4 +112,41 @@ class DatabaseHelper{
     );
     return result;
   }
+
+  //CRUD of user's accomplishments
+
+  createAccomplishment(Map<String, dynamic> data) async{
+    var db = await database;
+    int result = await db.insert('accomplishments', data);
+    return result;
+  }
+
+  readAccomplishmentList() async{
+    var db = await database;
+    String sql = 'SELECT * FROM accomplishments';
+    List<Map<String, dynamic>> data = await db.rawQuery( sql );
+    return data;
+  }
+
+  updateAccomplishmentList(Map<String, dynamic> data) async{
+    var db = await database;
+    int result = await db.update(
+        'accomplishments',
+        data,
+        where: 'id = ?',
+        whereArgs: [data['id']]
+    );
+    return result;
+  }
+
+  deleteAccomplishment(int id) async{
+    var db = await database;
+    int result = await db.delete(
+        'accomplishments',
+        where : 'id = ?',
+        whereArgs: [id]
+    );
+    return result;
+  }
+
 }

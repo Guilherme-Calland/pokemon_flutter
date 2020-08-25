@@ -15,7 +15,7 @@ class TypewriterText extends StatelessWidget {
       text: [
         text,
       ],
-      textStyle: kDefaultTextStyle,
+      textStyle: kDefaultTextStyle.copyWith(fontSize: 18),
     );
   }
 }

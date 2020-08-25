@@ -5,8 +5,9 @@ class ListText extends StatefulWidget {
   final int id;
   final String text;
   final controller = TextEditingController();
+  final String pokemonOrAccomplishment;
 
-  ListText(this.id, this.text){
+  ListText({this.id, this.text, this.pokemonOrAccomplishment}){
     controller.text = text;
   }
 
@@ -23,14 +24,17 @@ class _ListTextState extends State<ListText> {
       children: [
         Expanded(
           child: Container(
-            height: 32,
             padding: const EdgeInsets.only(left:4),
             child: TextField(
+              maxLines: null,
               controller: widget.controller,
               onChanged: (value){
                 trashCan = false;
                 setState(() {});
-                provider(context).updatePokemonList(widget.id, value);
+                widget.pokemonOrAccomplishment == 'pokemon' ?
+                provider(context).updatePokemonList(widget.id, value)
+                    :
+                provider(context).updateAccomplishmentList(widget.id, value);
               },
               onTap: (){
                 trashCan = true;
@@ -46,8 +50,11 @@ class _ListTextState extends State<ListText> {
         ),
         trashCan ? GestureDetector(
           onTap: (){
-            provider(context).deletePokemon(widget.id);
-            },
+            widget.pokemonOrAccomplishment == 'pokemon' ?
+                provider(context).deletePokemon(widget.id)
+                :
+                provider(context).deleteAccomplishment(widget.id);
+          },
           child: Padding(
             padding: const EdgeInsets.only(right: 80, bottom: 4),
             child: Image.asset('assets/trashcan.png'),

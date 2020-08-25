@@ -9,10 +9,11 @@ class YourProfileScreen extends StatelessWidget {
   final String userName;
   final nameController = TextEditingController();
 
-  YourProfileScreen({this.userName}){
+  YourProfileScreen({this.userName}) {
     //TODO: solve this delete problem
     nameController.text = userName;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,21 +54,39 @@ class YourProfileScreen extends StatelessWidget {
               SizedBox(
                 height: 32,
               ),
-              TypewriterText('Your Pokemon:'),
+              TypewriterText('My Pokemon:'),
               SizedBox(
-                height: 16,
+                height: 20,
               ),
               Column(children: listenerProvider(context).pokemonList),
               ProfileButton(
-                  text: 'Add',
-                  onTap: () {
-                    provider(context).createPokemon();
-                  }),
+                text: 'Add',
+                onTap: () {
+                  provider(context).createPokemon();
+                },
+              ),
+              SizedBox(
+                height: 32,
+              ),
+              Text(
+                'Accomplishments:',
+                style: kDefaultTextStyle.copyWith(fontSize: 18),
+              ),
+              SizedBox(height: 4,),
+              Column(children: listenerProvider(context).accomplishmentList,),
               ProfileButton(
-                  text: 'Back',
-                  onTap: () {
-                    Navigator.pop(context);
-                  })
+                text: 'Add',
+                onTap: () {
+                  provider(context).createAccomplishment();
+                },
+              ),
+              SizedBox(height: 20,),
+              ProfileButton(
+                text: 'Back',
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
             ],
           ),
         ),

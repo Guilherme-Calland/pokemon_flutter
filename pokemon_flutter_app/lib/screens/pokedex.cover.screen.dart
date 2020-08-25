@@ -25,6 +25,11 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
   void getUserInformation() {
     readUserName();
     readPokemonList();
+    readAccomplishmentList();
+  }
+
+  void readAccomplishmentList() {
+    provider(context).readAccomplishmentList();
   }
 
   void readPokemonList() {
@@ -37,9 +42,9 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
 
   void setMoveSquareAnimation() {
     moveSquareAnimationController = AnimationController(
-        duration: Duration(milliseconds: 500), vsync: this, value: 0.0);
+        duration: Duration(milliseconds: 400), vsync: this, value: 0.0);
     moveSquareAnimation =
-        Tween<double>(begin: 0, end: 40).animate(moveSquareAnimationController)
+        Tween<double>(begin: 0, end: 35).animate(moveSquareAnimationController)
           ..addListener(() {
             if (moveSquareAnimation.isDismissed) {
               moveAnimationController.reverse();
@@ -67,7 +72,7 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
   void setSquareRotationAnimation() {
     rotateSquareAnimationController = AnimationController(
         duration: Duration(milliseconds: 500), vsync: this, value: 0.0);
-    rotateSquareAnimation = Tween<double>(begin: 0.0, end: 1.6)
+    rotateSquareAnimation = Tween<double>(begin: 0.0, end: 3.13)
         .animate(rotateSquareAnimationController)
           ..addListener(() {
             if (rotateSquareAnimation.isCompleted) {

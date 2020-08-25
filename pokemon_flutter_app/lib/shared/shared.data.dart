@@ -7,6 +7,9 @@ class SharedData extends ChangeNotifier{
   DatabaseHelper database = DatabaseHelper();
 
   List<ListText> pokemonList = [];
+  List<ListText> accomplishmentList = [];
+
+
 
   createUserName() async{
     Map<String, dynamic> data = {
@@ -41,7 +44,7 @@ class SharedData extends ChangeNotifier{
     print('pokemon of id $id created');
     //TODO:this could be better I think
     String newPokemonSlot = '';
-    pokemonList.add(ListText(id, newPokemonSlot));
+    pokemonList.add(ListText(id: id, text: newPokemonSlot, pokemonOrAccomplishment: 'pokemon',));
     readPokemonList();
   }
 
@@ -51,7 +54,7 @@ class SharedData extends ChangeNotifier{
     for(Map<String, dynamic> m in data){
       String pokemonName = m['name'];
       int pokemonId = m['id'];
-      pokemonListTemp.add(ListText(pokemonId, pokemonName));
+      pokemonListTemp.add(ListText(id: pokemonId, text: pokemonName, pokemonOrAccomplishment: 'pokemon',));
     }
     pokemonList = pokemonListTemp;
     for(ListText l in pokemonList){
@@ -73,6 +76,48 @@ class SharedData extends ChangeNotifier{
     int result = await database.deletePokemon(id);
     print('deleted pokemon: $result');
     readPokemonList();
+  }
+
+  createAccomplishment() async {
+    Map<String,dynamic> data = {
+      'title' : ''
+    };
+    int id = await database.createAccomplishment(data);
+    print('accomplishment of id $id created');
+    String newAccomplishmentSlot = '';
+    accomplishmentList.add(ListText(id: id, text: newAccomplishmentSlot, pokemonOrAccomplishment: 'accomplishment',));
+    readAccomplishmentList();
+  }
+
+  readAccomplishmentList() async{
+    List<Map<String, dynamic>> data = await database.readAccomplishmentList();
+    List<ListText> accomplishmentListTemp = List<ListText>();
+    for(Map<String, dynamic> m in data){
+      String accomplishmentTitle= m['title'];
+      int accomplishmentId = m['id'];
+      accomplishmentListTemp.add(ListText(id: accomplishmentId, text: accomplishmentTitle, pokemonOrAccomplishment: 'accomplishment',));
+    }
+    accomplishmentList = accomplishmentListTemp;
+    //TODO: remove this
+    for(ListText l in accomplishmentList){
+      print(l.text);
+    }
+    notifyListeners();
+  }
+
+  updateAccomplishmentList(int id, String value) async{
+    Map<String, dynamic> data = {
+      'id' : id,
+      'title' : value
+    };
+    int result = await database.updateAccomplishmentList(data);
+    print('updating list $result');
+  }
+
+  deleteAccomplishment(int id) async {
+    int result = await database.deleteAccomplishment(id);
+    print('deleted accomplishment: $result');
+    readAccomplishmentList();
   }
 
 }
