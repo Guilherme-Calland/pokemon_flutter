@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
+import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
 import 'package:pokemon_flutter_app/shared/shared.data.dart';
+import 'package:pokemon_flutter_app/widgets/list.text.dart';
 import 'package:pokemon_flutter_app/widgets/menu.button.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:provider/provider.dart';
 
 class MenuScreen extends StatelessWidget {
-  final String userName;
-  MenuScreen({this.userName});
 //TODO: remove unused assets in the assets folder
 //TODO: mover todos os projetos do flutter para a outra memória(a de 120 gb) em geral mover tudo pra la, porque quando voce arruinar esse SO ficará tudo salvo lá
 //TODO: feature: search for any pokemon and show stats
@@ -31,13 +31,9 @@ class MenuScreen extends StatelessWidget {
                     left: 16.0,
                     bottom: 16,
                   ),
-                  child: Consumer<SharedData>(
-                    builder: (context, data, child){
-                      return Text(
-                        'Welcome ${data.userName}',
-                        style: kDefaultTextStyle.copyWith(),
-                      );
-                    }
+                  child: Text(
+                    'Welcome ${provider(context).userName}',
+                    style: kDefaultTextStyle,
                   ),
                 ),
                 MenuButton(
@@ -45,9 +41,15 @@ class MenuScreen extends StatelessWidget {
                   onTap: () {
                     final player = AudioCache();
                     player.play('buttonSelected.wav');
-                    provider(context).readPokemonList();
-                    provider(context).readUserName();
-                    Navigator.pushNamed(context, 'your.profile.screen');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context){
+                          String userName = provider(context).userName;
+                          return YourProfileScreen(userName: userName);
+                        }
+                      ),
+                    );
                   },
                 ),
                 MenuButton(
@@ -71,9 +73,7 @@ class MenuScreen extends StatelessWidget {
             ),
           ),
         ),
-
       ],
     );
   }
-
 }

@@ -6,7 +6,7 @@ class SharedData extends ChangeNotifier{
   String userName = null;
   DatabaseHelper database = DatabaseHelper();
 
-  List<ListText> pokemonList = List<ListText>();
+  List<ListText> pokemonList = [];
 
   createUserName() async{
     Map<String, dynamic> data = {
@@ -30,7 +30,7 @@ class SharedData extends ChangeNotifier{
     };
     int result = await database.updateUserName(data);
     print('updated name: $result');
-    notifyListeners();
+    readUserName();
   }
 
   createPokemon() async {

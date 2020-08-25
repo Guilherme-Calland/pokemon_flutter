@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
-import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:pokemon_flutter_app/widgets/list.text.dart';
-import 'package:pokemon_flutter_app/widgets/menu.button.dart';
 import 'package:pokemon_flutter_app/widgets/pokedex.title.dart';
 import 'package:pokemon_flutter_app/widgets/profile.button.dart';
 import 'package:pokemon_flutter_app/widgets/typewriter.text.dart';
-import 'package:provider/provider.dart';
 
 class YourProfileScreen extends StatelessWidget {
+  final String userName;
   final nameController = TextEditingController();
 
+  YourProfileScreen({this.userName}){
+    //TODO: solve this delete problem
+    nameController.text = userName;
+  }
   @override
   Widget build(BuildContext context) {
-    nameController.text = provider(context).userName;
     return Scaffold(
       backgroundColor: kBackgroundColor,
       appBar: AppBar(

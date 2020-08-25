@@ -10,6 +10,7 @@ Animation rotateSquareAnimation, moveAnimation, moveSquareAnimation;
 Color kBackgroundColor = Color(0xff282828);
 
 SharedData provider(BuildContext context) => Provider.of<SharedData>(context, listen: false);
+//TODO: if this is not used, delete it
 SharedData listenerProvider(BuildContext context) => Provider.of<SharedData>(context, listen: true);
 
 MaterialColor kBackgroundMaterialColor = MaterialColor(0xff282828, {

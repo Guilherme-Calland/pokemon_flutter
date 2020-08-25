@@ -50,10 +50,7 @@ class _ListTextState extends State<ListText> {
             },
           child: Padding(
             padding: const EdgeInsets.only(right: 80, bottom: 4),
-            child: Transform.scale(
-              //TODO: instead of transformming image, change actual image size
-                scale: 2,
-                child: Image.asset('assets/trashcan.png')),
+            child: Image.asset('assets/trashcan.png'),
           ),
         ) : Container()
       ],

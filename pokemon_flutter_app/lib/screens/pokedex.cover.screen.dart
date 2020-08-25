@@ -19,10 +19,18 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
     setSquareRotationAnimation();
     setMoveAnimation();
     setMoveSquareAnimation();
-    readUserName();
+    getUserInformation();
   }
 
-  //TODO: remove this function
+  void getUserInformation() {
+    readUserName();
+    readPokemonList();
+  }
+
+  void readPokemonList() {
+    provider(context).readPokemonList();
+  }
+
   void readUserName() {
     provider(context).readUserName();
   }
@@ -73,12 +81,11 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    String userName = provider(context).userName;
 
     return Scaffold(
       body: Stack(
         children: [
-          MenuScreen(userName: userName),
+          MenuScreen(),
           Column(
             children: [
               Transform.translate(
