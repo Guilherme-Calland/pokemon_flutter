@@ -84,7 +84,6 @@ class DatabaseHelper{
     var db = await database;
     String sql = 'SELECT * FROM pokemon';
     List<Map<String, dynamic>> data = await db.rawQuery( sql );
-//    print(data);
     return data;
   }
 
@@ -95,6 +94,16 @@ class DatabaseHelper{
       data,
       where: 'id = ?',
       whereArgs: [data['id']]
+    );
+    return result;
+  }
+
+  deletePokemon(int id) async{
+    var db = await database;
+    int result = await db.delete(
+      'pokemon',
+      where : 'id = ?',
+      whereArgs: [id]
     );
     return result;
   }

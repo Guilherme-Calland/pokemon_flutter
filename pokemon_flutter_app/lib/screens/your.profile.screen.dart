@@ -26,37 +26,47 @@ class YourProfileScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(left: 16, top:48),
+          padding: EdgeInsets.only(left: 16, top: 48),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  Text('Name:', style: kDefaultTextStyle,),
+                  Text(
+                    'Name:',
+                    style: kDefaultTextStyle,
+                  ),
                   Expanded(
                     child: TextField(
-                      onChanged: (value){
+                      onChanged: (value) {
                         provider(context).updateUserName(value);
                       },
                       controller: nameController,
                       style: kDefaultTextStyle,
                       keyboardType: TextInputType.visiblePassword,
-                      decoration: InputDecoration(
-                        border: InputBorder.none
-                      ),
+                      decoration: InputDecoration(border: InputBorder.none),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 32,),
+              SizedBox(
+                height: 32,
+              ),
               TypewriterText('Your Pokemon:'),
-              SizedBox(height: 16,),
-            Column(
-              children: listenerProvider(context).pokemonList
-            ),
-              ProfileButton(text: 'Add', onTap: (){
-                provider(context).createPokemon();
-              })
+              SizedBox(
+                height: 16,
+              ),
+              Column(children: listenerProvider(context).pokemonList),
+              ProfileButton(
+                  text: 'Add',
+                  onTap: () {
+                    provider(context).createPokemon();
+                  }),
+              ProfileButton(
+                  text: 'Back',
+                  onTap: () {
+                    Navigator.pop(context);
+                  })
             ],
           ),
         ),
@@ -64,5 +74,3 @@ class YourProfileScreen extends StatelessWidget {
     );
   }
 }
-
-

@@ -14,7 +14,7 @@ class ProfileButton extends StatelessWidget {
       child: Container(
         width: 80,
         height: 40,
-        margin: EdgeInsets.only(top: 16, left:4),
+        margin: EdgeInsets.only(top: 16, left:4, bottom: 16),
         decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/profileButtonBackground.png'),

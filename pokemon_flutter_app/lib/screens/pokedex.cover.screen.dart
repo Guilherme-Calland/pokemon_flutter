@@ -20,9 +20,9 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
     setMoveAnimation();
     setMoveSquareAnimation();
     readUserName();
-    provider(context).readPokemonList();
   }
 
+  //TODO: remove this function
   void readUserName() {
     provider(context).readUserName();
   }
@@ -73,11 +73,12 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+    String userName = provider(context).userName;
 
     return Scaffold(
       body: Stack(
         children: [
-          MenuScreen(),
+          MenuScreen(userName: userName),
           Column(
             children: [
               Transform.translate(
@@ -130,18 +131,6 @@ class _PokedexCoverScreenState extends State<PokedexCoverScreen>
                     child: Transform.rotate(
                       angle: rotateSquareAnimation.value,
                         child: Image.asset('assets/lock.png', height: 120,),
-//                      child: Container(
-//                        child: Center(),
-//                        height: 120,
-//                        width: 120,
-////                    color: Colors.white,
-//                        decoration: BoxDecoration(
-//                          color: Colors.white,
-//                          border: Border.all(
-//                            width: 30,
-//                          ),
-//                        ),
-//                      ),
                     ),
                   )),
                 )

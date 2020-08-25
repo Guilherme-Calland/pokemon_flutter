@@ -30,7 +30,7 @@ class SharedData extends ChangeNotifier{
     };
     int result = await database.updateUserName(data);
     print('updated name: $result');
-    readUserName();
+    notifyListeners();
   }
 
   createPokemon() async {
@@ -39,7 +39,8 @@ class SharedData extends ChangeNotifier{
     };
     int id = await database.createPokemon(data);
     print('pokemon of id $id created');
-    String newPokemonSlot = 'aaa';
+    //TODO:this could be better I think
+    String newPokemonSlot = '';
     pokemonList.add(ListText(id, newPokemonSlot));
     readPokemonList();
   }
@@ -68,6 +69,11 @@ class SharedData extends ChangeNotifier{
     print('updating list $result');
   }
 
+  deletePokemon(int id) async {
+    int result = await database.deletePokemon(id);
+    print('deleted pokemon: $result');
+    readPokemonList();
+  }
 
 }
 

@@ -6,6 +6,8 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:provider/provider.dart';
 
 class MenuScreen extends StatelessWidget {
+  final String userName;
+  MenuScreen({this.userName});
 //TODO: remove unused assets in the assets folder
 //TODO: mover todos os projetos do flutter para a outra memória(a de 120 gb) em geral mover tudo pra la, porque quando voce arruinar esse SO ficará tudo salvo lá
 //TODO: feature: search for any pokemon and show stats
@@ -43,8 +45,8 @@ class MenuScreen extends StatelessWidget {
                   onTap: () {
                     final player = AudioCache();
                     player.play('buttonSelected.wav');
-                    //update the users info before seeing it
                     provider(context).readPokemonList();
+                    provider(context).readUserName();
                     Navigator.pushNamed(context, 'your.profile.screen');
                   },
                 ),
