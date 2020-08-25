@@ -37,10 +37,10 @@ class SharedData extends ChangeNotifier{
     Map<String,dynamic> data = {
       'name' : ''
     };
-    int result = await database.createPokemon(data);
-    print('pokemon of id $result created');
-    String newPokemonSlot = ' ';
-    pokemonList.add(ListText(newPokemonSlot));
+    int id = await database.createPokemon(data);
+    print('pokemon of id $id created');
+    String newPokemonSlot = 'aaa';
+    pokemonList.add(ListText(id, newPokemonSlot));
     readPokemonList();
   }
 
@@ -49,10 +49,23 @@ class SharedData extends ChangeNotifier{
     List<ListText> pokemonListTemp = List<ListText>();
     for(Map<String, dynamic> m in data){
       String pokemonName = m['name'];
-      pokemonListTemp.add(ListText(pokemonName));
+      int pokemonId = m['id'];
+      pokemonListTemp.add(ListText(pokemonId, pokemonName));
     }
     pokemonList = pokemonListTemp;
+    for(ListText l in pokemonList){
+      print(l.text);
+    }
     notifyListeners();
+  }
+
+  updatePokemonList(int id, String value) async{
+    Map<String, dynamic> data = {
+      'id' : id,
+      'name' : value
+    };
+    int result = await database.updatePokemonList(data);
+    print('updating list $result');
   }
 
 

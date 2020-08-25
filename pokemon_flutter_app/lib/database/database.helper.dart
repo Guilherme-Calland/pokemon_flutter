@@ -84,7 +84,18 @@ class DatabaseHelper{
     var db = await database;
     String sql = 'SELECT * FROM pokemon';
     List<Map<String, dynamic>> data = await db.rawQuery( sql );
-    print(data);
+//    print(data);
     return data;
+  }
+
+  updatePokemonList(Map<String, dynamic> data) async{
+    var db = await database;
+    int result = await db.update(
+      'pokemon',
+      data,
+      where: 'id = ?',
+      whereArgs: [data['id']]
+    );
+    return result;
   }
 }

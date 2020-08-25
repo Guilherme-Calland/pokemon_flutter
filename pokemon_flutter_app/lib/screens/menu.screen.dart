@@ -43,6 +43,8 @@ class MenuScreen extends StatelessWidget {
                   onTap: () {
                     final player = AudioCache();
                     player.play('buttonSelected.wav');
+                    //update the users info before seeing it
+                    provider(context).readPokemonList();
                     Navigator.pushNamed(context, 'your.profile.screen');
                   },
                 ),

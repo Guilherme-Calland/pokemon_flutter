@@ -51,14 +51,6 @@ class YourProfileScreen extends StatelessWidget {
               SizedBox(height: 32,),
               TypewriterText('Your Pokemon:'),
               SizedBox(height: 16,),
-//              Consumer<SharedData>(
-//                builder: (context, data, child){
-//                  List<ListText> pokemonList = data.pokemonList;
-//                  return Column(
-//                      children: pokemonList
-//                  );
-//                }
-//              ),
             Column(
               children: listenerProvider(context).pokemonList
             ),
