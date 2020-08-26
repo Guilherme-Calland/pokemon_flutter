@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
+import 'package:pokemon_flutter_app/screens/forum.screen.dart';
 import 'package:pokemon_flutter_app/screens/pokedex.cover.screen.dart';
 import 'package:pokemon_flutter_app/screens/menu.screen.dart';
 import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
@@ -37,11 +38,12 @@ class PokemonApp extends StatelessWidget {
             primarySwatch: kBackgroundMaterialColor
         ),
 
-        initialRoute: 'pokedex.cover.screen',
+        initialRoute: 'forum.screen',
         routes: {
           'pokedex.cover.screen': (context) => PokedexCoverScreen(),
           'menu.screen': (context) => MenuScreen(),
           'your.profile.screen': (context) => YourProfileScreen(),
+          'forum.screen': (context) => ForumScreen()
         },
       ),
     );
