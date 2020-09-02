@@ -32,13 +32,13 @@ class PokemonApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             primaryColor: Colors.red,
-            accentColor: Color(0xff282828),
+            accentColor: kBackgroundColor,
             //the cursor color is the same as the background color
-            cursorColor: Color(0xff282828),
+            cursorColor: kBackgroundColor,
             primarySwatch: kBackgroundMaterialColor
         ),
 
-        initialRoute: 'forum.screen',
+        initialRoute: 'pokedex.cover.screen',
         routes: {
           'pokedex.cover.screen': (context) => PokedexCoverScreen(),
           'menu.screen': (context) => MenuScreen(),

@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
 
 class TypewriterText extends StatelessWidget {
-  String text;
-  TypewriterText(this.text);
+  final String text;
+  final repeat;
+  TypewriterText(this.text, {this.repeat});
 
   @override
   Widget build(BuildContext context) {

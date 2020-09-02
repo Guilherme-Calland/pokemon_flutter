@@ -5,12 +5,13 @@ import 'package:pokemon_flutter_app/widgets/pokedex.title.dart';
 import 'package:pokemon_flutter_app/widgets/profile.button.dart';
 import 'package:pokemon_flutter_app/widgets/typewriter.text.dart';
 
+//TODO: make arrows in right side to push down the screen instead of a scroll view
+
 class YourProfileScreen extends StatelessWidget {
   final String userName;
   final nameController = TextEditingController();
 
   YourProfileScreen({this.userName}) {
-    //TODO: solve this delete problem
     nameController.text = userName;
   }
 

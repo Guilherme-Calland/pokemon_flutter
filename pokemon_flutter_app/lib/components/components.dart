@@ -3,6 +3,7 @@ import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:provider/provider.dart';
 
 TextStyle kDefaultTextStyle = TextStyle(fontSize: 20, color: Color(0x8021ff00), fontFamily: 'PressStart2P');
+Color kGreen = Color(0x8021ff00);
 
 AnimationController rotateSquareAnimationController, moveAnimationController, moveSquareAnimationController;
 Animation rotateSquareAnimation, moveAnimation, moveSquareAnimation;
