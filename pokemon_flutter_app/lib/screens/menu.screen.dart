@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_flutter_app/components/components.dart';
 import 'package:pokemon_flutter_app/screens/forum.screen.dart';
+import 'package:pokemon_flutter_app/screens/search.pokemon.screen.dart';
 import 'package:pokemon_flutter_app/screens/your.profile.screen.dart';
 import 'package:pokemon_flutter_app/shared/shared.data.dart';
 import 'package:pokemon_flutter_app/widgets/list.text.dart';
@@ -49,6 +50,7 @@ class MenuScreen extends StatelessWidget {
                   text: 'Search Pokemon',
                   onTap: () {
                     playSound();
+                    changeScreen(context, SearchPokemonScreen());
                   },
                 ),
                 MenuButton(

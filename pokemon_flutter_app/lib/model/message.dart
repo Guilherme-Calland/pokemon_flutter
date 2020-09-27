@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Message{
   String userName;
   String message;
-  DateTime date;
+  Timestamp date;
+
+  Message({this.userName, this.message, this.date});
 }
 
